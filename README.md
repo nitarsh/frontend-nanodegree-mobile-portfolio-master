@@ -1,3 +1,28 @@
+# Shrinath's solution to assignment
+
+## How to run
+- Configure `nginx.conf` to compress resources like this:
+```
+        gzip on;
+        gzip_disable "msie6";
+        gzip_types text/plain text/html text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+```
+- Configure nginx sites-enabled file like so:
+```
+server {
+        listen 8080 default_server;
+        listen [::]:8080 default_server;
+
+        root /path/to/frontend-nanodegree-mobile-portfolio-master;
+
+        server_name _;
+
+        location ~*  \.(jpg|jpeg|png|gif|ico|css|js)$ {
+                expires 3h;
+        }
+}
+```
+
 ## Optimization and Performance of `index.html`
 ### Optimizations
 - Brought some of the small scripts and styles inside the `head` element to reduce the CRP.
@@ -13,7 +38,7 @@
 
 ## Optimizations and Performance of `views/js/main.js`
 ### Optimizations
-- refactor resizePizzas function to not get the old size before setting the new size
+- Refactor resizePizzas function to not get the old size before setting the new size
 	-- is using % less efficient?
 	-- can we make this better by pushing this to css? - just changing the css of just the parent class?
 - Reduce the `forced reflow` issue in `updatePositions` method by querying the `body.scrollTop` value only once
