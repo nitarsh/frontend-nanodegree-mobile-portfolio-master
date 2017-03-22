@@ -538,7 +538,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var s = 256;
     var height = window.screen.height;
     var rows = Math.ceil(window.screen.height / s)*2;
-    console.log("total elems:"+ rows + ", "+cols+ ", T:"+rows*cols);
     for (var i = 0; i < rows*cols; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
