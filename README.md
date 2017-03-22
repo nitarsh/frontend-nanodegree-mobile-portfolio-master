@@ -1,13 +1,14 @@
 # Shrinath's solution to assignment
 
 ## How to run
+- Install Nginx
 - Configure `nginx.conf` to compress resources like this:
 ```
         gzip on;
         gzip_disable "msie6";
         gzip_types text/plain text/html text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 ```
-- Configure nginx sites-enabled file like so:
+- Configure nginx sites-enabled file (there is always a default ) like so:
 ```
 server {
         listen 8080 default_server;
@@ -22,6 +23,8 @@ server {
         }
 }
 ```
+- Don't forget to restart nginx service (in linux: 'service nginx restart')
+- Open the browser and go to `localhost:8080`
 
 ## Optimization and Performance of `index.html`
 ### Optimizations
